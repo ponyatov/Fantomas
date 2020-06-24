@@ -6,17 +6,18 @@ REL = $(shell git rev-parse --short=4 HEAD)
 
 PIP = $(CWD)/bin/pip3
 PY  = $(CWD)/bin/python3
+PYT = $(CWD)/bin/pytest
 
 IP	 ?= 127.0.0.1
 PORT ?= 19999
 
 WGET = wget -c --no-check-certificate
 
-.PHONY: all py test
+.PHONY: all test
 
-all: py
-
-py: $(PY) $(MODULE).py $(MODULE).ini
+all: $(PY) $(MODULE).py $(MODULE).ini
+	$^
+test: $(PYT) test_$(MODULE).py
 	$^
 
 .PHONY: install
@@ -47,7 +48,7 @@ debian:
 .PHONY: master shadow release
 
 MERGE  = Makefile README.md .gitignore .vscode apt.txt requirements.txt
-MERGE += $(MODULE).py $(MODULE).ini
+MERGE += test_$(MODULE).py $(MODULE).py $(MODULE).ini
 
 master:
 	git checkout $@

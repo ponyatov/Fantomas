@@ -27,14 +27,14 @@
 
     // ignore large files for VSCode sync
     "files.watcherExclude": {
-        // "**/bin/**": true, "**/include/**":true, "**/lib*/**":true, "**/share/**":true,
+        "**/bin/**": true, "**/include/**":true, "**/lib*/**":true, "**/share/**":true,
         // "**/*.pyc": true, "**/docs/**":true,
         // "**/buildroot-*/**": true,
         // "**/firmware/**": true,
     },
 
     "files.exclude": {
-        // "bin": true, "include":true, "lib*":true, "share":true, "pyvenv.cfg":true,
+        "bin": true, "include":true, "lib*":true, "share":true, "pyvenv.cfg":true,
         // "**/*.pyc": true, "**/docs/**":true,
     },
 
@@ -43,6 +43,6 @@
     "files.associations": {
         // "**/templates/*.html": "django-html",
         // "**/templates/*": "django-txt",
-        // "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
     },
 }
